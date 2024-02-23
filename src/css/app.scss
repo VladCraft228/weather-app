@@ -13,50 +13,50 @@ body.body--light {
 body.body--dark {
   input {
     font-size: 14pt;
-    color: $dark;
+    color: $dark; // Колір тексту у темному режимі
   }
   .q-icon {
-    color: $dark;
+    color: $dark; // Колір іконок у темному режимі
     vertical-align: baseline;
   }
 
   .q-drawer {
-    background: $dark-page;
+    background: $dark-page; // Фон висувного меню у темному режимі
   }
 
   .q-item__label--caption {
-    color: grey;
+    color: grey; // Колір підписів у темному режимі
   }
 
   .q-item__label--header {
-    color: white;
+    color: white; // Колір заголовків у темному режимі
   }
 }
 
 .q-field--dense .q-field__control,
 .q-field--dense .q-field__marginal {
-  height: 60px;
+  height: 60px; // Висота полів вводу ущільненого типу
 }
 
 .q-field--dense .q-field__label {
-  top: 12px;
-  font-size: 14pt;
-  height: 35%;
-  color: gray;
+  top: 12px; // Позиціонування верхнього маркера полів вводу
+  font-size: 14pt; // Розмір шрифту верхнього маркера полів вводу
+  height: 35%; // Висота верхнього маркера полів вводу
+  color: gray; // Колір верхнього маркера полів вводу
 }
 
 .q-field--highlighted .q-field__label {
-  color: currentColor;
+  color: currentColor; // Колір виділеного верхнього маркера полів вводу
 }
 
 .coord-input {
   label {
-    margin-bottom: 15px;
+    margin-bottom: 15px; // Відступ між міткою та полем вводу для координат
   }
 }
 
 .row.inline {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 5px;
+  justify-content: flex-end; // Вирівнювання елементів у рядку по правому краю
+  margin-top: 5px; // Відступ зверху між рядками
 }

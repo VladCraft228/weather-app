@@ -1,7 +1,10 @@
 <template>
+  <!-- Основний макет з інтерфейсом Quasar -->
   <q-layout view="lHh Lpr lFf">
+    <!-- Верхній блок з заголовком та перемикачем теми -->
     <q-header elevated :class="isActiveDarkMode ? 'bg-secondary' : 'white'">
       <q-toolbar>
+        <!-- Кнопка меню -->
         <q-btn
           flat
           dense
@@ -10,7 +13,9 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
+        <!-- Заголовок -->
         <q-toolbar-title> Weather App </q-toolbar-title>
+        <!-- Перемикач теми -->
         <q-toggle
           v-model="isActiveDarkMode"
           @update:model-value="darkModeUpdate"
@@ -22,9 +27,11 @@
       </q-toolbar>
     </q-header>
 
+    <!-- Висувне меню з посиланнями -->
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
         <q-item-label header>Essential Links</q-item-label>
+        <!-- Компонент EssentialLink для кожного посилання -->
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
@@ -33,6 +40,7 @@
       </q-list>
     </q-drawer>
 
+    <!-- Вміст сторінки, який змінюється залежно від маршруту -->
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -44,6 +52,7 @@ import { defineComponent, ref, onMounted, watch } from "vue";
 import EssentialLink from "components/EssentialLink.vue";
 
 const linksList = [
+  // Список посилань
   {
     title: "Quasar's Docs",
     caption: "quasar.dev",
@@ -63,6 +72,7 @@ const linksList = [
     link: "https://github.com/VladCraft228/weather-app",
   },
 ];
+
 export default defineComponent({
   name: "MainLayout",
 
@@ -71,23 +81,29 @@ export default defineComponent({
   },
   setup() {
     const leftDrawerOpen = ref(false);
+    // Завантаження збереженої теми з локального сховища
     const savedDarkMode = localStorage.getItem("darkMode");
     const isActiveDarkMode = ref(savedDarkMode === "true");
 
+    // Встановлення початкового значення теми при завантаженні компонента
     onMounted(() => {
       setDarkMode(isActiveDarkMode.value);
     });
 
+    // Спостереження за змінами теми
     watch(isActiveDarkMode, (val) => {
       setDarkMode(val);
     });
 
+    // Функція для зміни теми
     function setDarkMode(val) {
       localStorage.setItem("darkMode", val);
+      // Зміна класу тіла сторінки залежно від теми
       document.body.classList.toggle("body--dark", val);
       document.body.classList.toggle("body--light", !val);
     }
 
+    // Функція для оновлення теми
     function darkModeUpdate(value) {
       setDarkMode(value);
     }
@@ -95,6 +111,7 @@ export default defineComponent({
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
+      // Функція для відкриття/закриття висувного меню
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
