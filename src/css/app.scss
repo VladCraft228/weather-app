@@ -10,6 +10,10 @@ body.body--light {
   }
 }
 
+.q-icon {
+  vertical-align: baseline;
+}
+
 body.body--dark {
   input {
     font-size: 14pt;
@@ -17,7 +21,6 @@ body.body--dark {
   }
   .q-icon {
     color: $dark; // Колір іконок у темному режимі
-    vertical-align: baseline;
   }
 
   .q-drawer {
@@ -49,14 +52,7 @@ body.body--dark {
   color: currentColor; // Колір виділеного верхнього маркера полів вводу
 }
 
-.coord-input {
-  label {
-    margin-bottom: 15px; // Відступ між міткою та полем вводу для координат
-  }
-}
-
 .row.inline {
   display: flex;
   justify-content: flex-end; // Вирівнювання елементів у рядку по правому краю
-  margin-top: 5px; // Відступ зверху між рядками
 }
